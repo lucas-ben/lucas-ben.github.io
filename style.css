@@ -1,15 +1,14 @@
-/* General body and navigation styles */
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
+    background-color: white;
+    color: navy;
     margin: 0;
     padding: 0;
 }
 
-nav {
-    background-color: #333;
-    padding: 10px;
+header {
+    background-color: navy;
+    padding: 15px;
 }
 
 nav ul {
@@ -19,7 +18,7 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin-right: 20px;
 }
 
 nav ul li a {
@@ -28,42 +27,25 @@ nav ul li a {
     font-size: 18px;
 }
 
-header {
-    margin: 20px;
+.profile-photo {
+    width: 150px;
+    border-radius: 50%;
 }
 
-/* Style for blog page */
-.post-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-}
-
-.post-item {
-    display: flex;
-    align-items: center;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    border-bottom: 2px solid #333;
-    padding: 10px 0;
 }
 
-.post-thumbnail {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 5px;
+.project-item img {
+    width: 100%;
 }
 
-.post-title {
-    font-size: 1.2em;
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
+.post-feed {
+    overflow-y: scroll;
+    height: 400px;
+    border: 1px solid navy;
+    padding: 10px;
 }
-
-.post-title:hover {
-    color: #007BFF;
-}
-
 
