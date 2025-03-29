@@ -1,3 +1,4 @@
+/* General body and navigation styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -29,5 +30,40 @@ nav ul li a {
 
 header {
     margin: 20px;
-)
+}
+
+/* Style for blog page */
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.post-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px solid #333;
+    padding: 10px 0;
+}
+
+.post-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.post-title {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.post-title:hover {
+    color: #007BFF;
+}
+
 
