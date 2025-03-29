@@ -11,9 +11,12 @@ body {
 }
 
 body, p, h1, h2, h3, .blurb, .subtitle, .location {
-	margin-left: 48px,
+	margin-left: 48px;
 	margin-right: 48px;
-
+	border: 2px solid white;
+	padding: 20px;
+	border-radius: 8px;
+}
 header {
     background-color: navy;
     color: white
