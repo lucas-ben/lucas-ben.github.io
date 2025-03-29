@@ -5,10 +5,14 @@ html {
 body {
     font-family: Arial, sans-serif;
     background-color: white;
-    color: navy;
+    color: black;
     margin: 0;
     padding: 0;
 }
+
+body, p, h1, h2, h3, .blurb, .subtitle, .location {
+	margin-left: 48px,
+	margin-right: 48px;
 
 header {
     background-color: navy;
