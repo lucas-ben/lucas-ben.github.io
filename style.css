@@ -14,11 +14,11 @@ body, p, h1, h2, h3, .blurb, .subtitle, .location {
 	margin-left: 24px;
 	margin-right: 24px;
 	border: 2px solid white;
-	padding: 20px;
+	padding: 10px;
 	border-radius: 8px;
 }
 header {
-    background-color: navy;
+    background-color: #3e8e41;
     color: white
     padding: 15px 0;
     text-align: center;
