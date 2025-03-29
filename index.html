@@ -6,13 +6,50 @@
     <title>Lucas Ben - Home</title>
     <link rel="stylesheet" href="style.css">
     <style>
-	
-	.blurb {
-	     text-align: center;
-	     margin-top: 20px;
-             font-size: 1.2em;
-             line-height: 1.5;
-	}
+        .blurb {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .profile-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile-container h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .profile-container .subtitle {
+            font-size: 1.2em;
+            color: gray;
+            margin: 5px 0;
+        }
+
+        .location {
+            font-size: 1em;
+            color: gray;
+            margin-top: 10px;
+        }
+
+        .about-me {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .about-me h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .about-me h3 {
+            font-size: 1.8em;
+            color: gray;
+        }
+
     </style>
 </head>
 <body>
@@ -28,15 +65,29 @@
     </header>
 
     <main class="home">
-        <img src="images/Stjepan_20240601_2556.jpeg" alt="Lucas Ben" class="profile-photo">
-        <p class="blurb">Hi, I'm Lucas. I'm currently pursuing a Master of Business Analytics at the Schulich School of Business - York University. I most recently completed a Bachelor of Science in statistics at Dalhousie University. Interests include quantitative finance, risk management, and sabermetrics.</p>
-    
-	<section class="blog-teaser">
+        <!-- Profile Section -->
+        <div class="profile-container">
+            <img src="images/Stjepan_20240601_2556.jpeg" alt="Lucas Ben" class="profile-photo">
+            <h1>Lucas Ben</h1>
+            <p class="subtitle">Pursuing a Master of Business Analytics at the Schulich School of Business - York University</p>
+            <p class="location">Toronto, Ontario</p>
+        </div>
+
+        <!-- About Me Section -->
+        <section class="about-me">
+            <h2>About Me</h2>
+            <h3>Interests</h3>
+            <p class="blurb">I am passionate about data-driven decision-making, quantitative finance, risk management, and sabermetrics. I strive to leverage my analytical skills to solve complex problems and make impactful decisions in the business and finance sectors.</p>
+        </section>
+
+        <!-- Blog Teaser -->
+        <section class="blog-teaser">
             <h3>Latest Blog Post</h3>
             <p>Read my latest blog post on data-driven decision making in business analytics.</p>
             <a href="blog.html" class="button">Read More</a>
-        </section>   
+        </section>
     </main>
 </body>
 </html>
+
 
