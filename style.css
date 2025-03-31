@@ -54,7 +54,7 @@ nav ul li a:hover {
     padding: 20px;
     position: fixed;
     left: 0;
-    top: 90px; /* Adjust to avoid the header */
+    top: 130px; /* Adjust to avoid the header */
     height: calc(100vh - 20px); /* Adjust for header */
     background-color: black;
     color: #f5f5dc;
@@ -94,16 +94,19 @@ nav ul li a:hover {
 
 /* Main Content Section (3/4 of the page) */
 .main-content {
-     position: absolute;
+    position: absolute;
     top: 25vh; /* Moves content down to start at 25% of viewport height */
     left: 20%; /* Aligns with profile container */
     right: 0;
-    padding: 40px;
-    color: white;
+    padding-bottom: 50px;
+    padding: 30px;
+    color: #f5f5dc;
     background-color: black;
     text-align: center;
     height: 75vh; /* Ensures content takes up bottom 75% */
     overflow-y: auto; /* Allows scrolling if content exceeds height */
+    border: 2px solid transparent;
+    border-radius: 10px;
 }
 
 /* Title and Subtitle Animations */
@@ -129,6 +132,51 @@ nav ul li a:hover {
     }
 }
 
+/* Teaser Section for Latest Projects & Blog Posts */
+.teaser-section {
+    margin-top: 80px; /* Adds space between the content and teaser section */
+    padding: 20px;
+    text-align: center;
+}
+
+.teaser-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Creates 3 equal-width columns */
+    gap: 30px; /* Space between items */
+    margin-top: 30px;
+}
+
+.teaser {
+    background-color: #f5f5dc; /* Light cream background for teaser items */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.teaser img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.teaser a {
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.teaser a:hover {
+    color: #3e8e41; /* Hover effect color */
+}
+
+/* Adjusting the grid layout for 2 rows */
+@media (max-width: 768px) {
+    .teaser-container {
+        grid-template-columns: 1fr 1fr; /* Two columns for smaller screens */
+    }
+}
 
  
 
