@@ -36,9 +36,10 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    font-weight: bold;
+    color: #f5f5dc;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 32px;
     transition: color 0.3s, border-bottom 0.3s;
 }
 
@@ -53,11 +54,11 @@ nav ul li a:hover {
     padding: 20px;
     position: fixed;
     left: 0;
-    top: 60px; /* Adjust to avoid the header */
-    height: calc(100vh - 60px); /* Adjust for header */
+    top: 90px; /* Adjust to avoid the header */
+    height: calc(100vh - 20px); /* Adjust for header */
     background-color: black;
-    color: white;
-    border-right: 2px solid white;
+    color: #f5f5dc;
+    border-right: 3px solid #f5f5dc;
     text-align: center;
 }
 
@@ -127,6 +128,7 @@ nav ul li a:hover {
         opacity: 1;
     }
 }
+
 
  
 
