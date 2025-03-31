@@ -93,11 +93,16 @@ nav ul li a:hover {
 
 /* Main Content Section (3/4 of the page) */
 .main-content {
-    margin-left: 20%; /* 3/4 of the page */
+     position: absolute;
+    top: 25vh; /* Moves content down to start at 25% of viewport height */
+    left: 20%; /* Aligns with profile container */
+    right: 0;
     padding: 40px;
     color: white;
     background-color: black;
     text-align: center;
+    height: 75vh; /* Ensures content takes up bottom 75% */
+    overflow-y: auto; /* Allows scrolling if content exceeds height */
 }
 
 /* Title and Subtitle Animations */
