@@ -66,7 +66,7 @@ nav ul li a:hover {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 4px solid #fff;
+    border: 4px solid #f5f5dc;
     margin-bottom: 20px;
 }
 
@@ -82,7 +82,7 @@ nav ul li a:hover {
 }
 
 .profile-container a {
-    color: white;
+    color: #f5f5dc;
     text-decoration: none;
     margin-top: 10px;
     display: block;
@@ -90,6 +90,41 @@ nav ul li a:hover {
 
 .profile-container a:hover {
     color: #f4f4f4;
+}
+
+/* Mobile-Specific Adjustments */
+@media screen and (max-width: 768px) {
+    /* Profile Section */
+    .profile-container {
+        width: 100%; /* Full width on smaller screens */
+        padding: 20px;
+        position: relative; /* Change from fixed to relative on mobile */
+        height: auto; /* Let the height adjust based on content */
+        border-right: none; /* Remove right border */
+        margin-bottom: 20px; /* Space below profile section */
+    }
+
+    /* Profile Image */
+    .profile-container img {
+        width: 80px;  /* Smaller size for mobile */
+        height: 80px;
+        margin-bottom: 15px; /* Adjust spacing */
+    }
+
+    /* Profile Header */
+    .profile-container h1 {
+        font-size: 1.2em; /* Adjust font size */
+    }
+
+    /* Profile Location */
+    .profile-container .location {
+        font-size: 0.9em; /* Slightly smaller text */
+    }
+
+    /* Profile Links */
+    .profile-container a {
+        font-size: 0.9em; /* Reduce link font size */
+    }
 }
 
 /* Main Content Section (3/4 of the page) */

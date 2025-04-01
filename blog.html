@@ -5,6 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <link rel="stylesheet" href="style.css">
+ <style>
+        /* Default layout for blog posts */
+        .post-feed {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .post {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .post h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .post p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        /* Mobile adjustments: Stack posts vertically */
+        @media screen and (max-width: 768px) {
+            .post-feed {
+                grid-template-columns: 1fr; /* Stack posts vertically on mobile */
+            }
+
+            .post h3 {
+                font-size: 1.2em; /* Adjust text size for smaller screens */
+            }
+
+            .post p {
+                font-size: 0.9em; /* Adjust paragraph text for better readability on mobile */
+            }
+
+            /* Mobile Navigation */
+            nav ul {
+                display: none; /* Hide the default nav on mobile */
+            }
+
+            .menu-toggle {
+                display: block; /* Show the toggle button */
+            }
+
+            .mobile-menu {
+                display: none;
+                flex-direction: column;
+                background: #3e8e41;
+                padding: 10px;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+            }
+
+            .mobile-menu a {
+                padding: 10px;
+                text-align: center;
+                display: block;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>

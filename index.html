@@ -28,6 +28,39 @@
                 opacity: 1;
             }
         }
+
+/* Mobile Navigation Toggle */
+        @media screen and (max-width: 768px) {
+            /* Mobile Navigation */
+            nav ul {
+                display: none; /* Hide the default nav on mobile */
+            }
+
+            .menu-toggle {
+                display: block; /* Show the toggle button */
+            }
+
+            .mobile-menu {
+                display: none; /* Hidden by default */
+                flex-direction: column;
+                background: #3e8e41;
+                padding: 10px;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+            }
+
+            .mobile-menu a {
+                padding: 10px;
+                text-align: center;
+                display: block;
+            }
+
+            .mobile-menu.active {
+                display: flex; /* Show mobile menu when active */
+            }
+        }
     </style>
 </head>
 <body>

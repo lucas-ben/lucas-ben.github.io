@@ -6,6 +6,69 @@
 
     <title>Projects</title>
     <link rel="stylesheet" href="style.css">
+     <style>
+        /* Grid container for projects */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project-item {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Mobile adjustments: Stack projects vertically */
+        @media screen and (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Stack items vertically on mobile */
+            }
+            
+            .project-item h3 {
+                font-size: 1.2em; /* Adjust text size for smaller screens */
+            }
+
+            nav ul {
+                display: none; /* Hide the default nav on mobile */
+            }
+
+            .menu-toggle {
+                display: block; /* Show the toggle button */
+            }
+            
+            .mobile-menu {
+                display: none;
+                flex-direction: column;
+                background: #3e8e41;
+                padding: 10px;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+            }
+
+            .mobile-menu a {
+                padding: 10px;
+                text-align: center;
+                display: block;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
