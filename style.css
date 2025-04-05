@@ -197,6 +197,209 @@ pre {
   overflow-x: auto;
 }
 
+/* ===== Projects Section ===== */
+.projects-content {
+    max-width: 1200px;
+    margin: 100px auto 50px;
+    padding: 0 30px;
+}
+
+.projects-title {
+    font-family: 'Courier New', monospace;
+    color: #5cdb95;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.terminal-command {
+    background: #1e1e1e;
+    border-left: 3px solid #5cdb95;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    font-family: 'Courier New', monospace;
+    color: #e0e0e0;
+}
+
+.prompt {
+    color: #5cdb95;
+    margin-right: 10px;
+}
+
+.command {
+    color: #e0e0e0;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: #5cdb95;
+}
+
+.terminal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #1e1e1e;
+    border: 1px solid #424242;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(92, 219, 149, 0.2);
+    border-color: #5cdb95;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: #2a2a2a;
+    border-bottom: 1px solid #424242;
+}
+
+.file-type {
+    color: #5cdb95;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.project-date {
+    color: #828282;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.project-image-container {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(5, 56, 107, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+    font-size: 2em;
+}
+
+.project-card:hover .image-overlay {
+    opacity: 1;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-details {
+    padding: 20px;
+}
+
+.project-name {
+    color: #5cdb95;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    word-break: break-all;
+}
+
+.project-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #828282;
+}
+
+.project-meta i {
+    margin-right: 5px;
+    color: #5cdb95;
+}
+
+.project-description {
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.project-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.terminal-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #05386b;
+    color: #5cdb95;
+    padding: 8px 15px;
+    border: 1px solid #5cdb95;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 0.9em;
+}
+
+.terminal-button:hover {
+    background: #5cdb95;
+    color: #05386b;
+}
+
+.terminal-button i {
+    font-size: 0.9em;
+}
+
+.coming-soon {
+    opacity: 0.8;
+    border-style: dashed;
+}
+
+.coming-soon .image-overlay {
+    opacity: 1;
+    background: rgba(30, 30, 30, 0.8);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .terminal-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-title {
+        font-size: 1.8em;
+    }
+    
+    .project-image-container {
+        height: 180px;
+    }
+}
+
 /* ===== Footer ===== */
 .site-footer {
   border-top: 1px solid #424242;

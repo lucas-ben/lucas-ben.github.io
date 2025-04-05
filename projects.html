@@ -3,103 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Projects</title>
+    <title>Projects - Lucas Ben</title>
     <link rel="stylesheet" href="style.css">
-     <style>
-        /* Grid container for projects */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .project-item {
-            background: #f4f4f4;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .project-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        /* Mobile adjustments: Stack projects vertically */
-        @media screen and (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr; /* Stack items vertically on mobile */
-            }
-            
-            .project-item h3 {
-                font-size: 1.2em; /* Adjust text size for smaller screens */
-            }
-
-            nav ul {
-                display: none; /* Hide the default nav on mobile */
-            }
-
-            .menu-toggle {
-                display: block; /* Show the toggle button */
-            }
-            
-            .mobile-menu {
-                display: none;
-                flex-direction: column;
-                background: #3e8e41;
-                padding: 10px;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-            }
-
-            .mobile-menu a {
-                padding: 10px;
-                text-align: center;
-                display: block;
-            }
-
-            .mobile-menu.active {
-                display: flex;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <button class="menu-toggle">☰</button>
     </header>
+             
+    <main class="projects-content">
+        <h1 class="projects-title">> Projects_</h1>
+        
+        <div class="terminal-command">
+            <span class="prompt">$</span> 
+            <span class="command">ls -la ./projects/</span>
+            <span class="cursor">|</span>
+        </div>
+        
+        <div class="terminal-grid">
+            <!-- Project 1 - Bayesian Analysis -->
+            <article class="project-card">
+                <div class="project-header">
+                    <span class="file-type">.R</span>
+                    <span class="project-date">2023-11-15</span>
+                </div>
+                <div class="project-image-container">
+                    <img src="images/bayesian_plot.png" alt="Bayesian Analysis Visualization" class="project-image">
+                    <div class="image-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h2 class="project-name">bayesian_analysis.R</h2>
+                    <div class="project-meta">
+                        <span><i class="fas fa-code-branch"></i> stats</span>
+                        <span><i class="fas fa-chart-bar"></i> baseball</span>
+                    </div>
+                    <p class="project-description">Statistical modeling of baseball hitting metrics using Bayesian methods with Stan</p>
+                    <div class="project-actions">
+                        <a href="barrel-rate-analysis.html" class="terminal-button">
+                            <i class="fas fa-terminal"></i> Run_Demo
+                        </a>
+                        <a href="https://github.com/lucas-ben/your-repo" target="_blank" class="terminal-button">
+                            <i class="fab fa-github"></i> View_Source
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-    <main class="projects">
-        <h1>Projects</h1>
-        <div class="grid-container">
-            <div class="project-item">
-                <img src="images/bayesian_plot.png" alt="Project 1">
-                <h3>Bayesian Analysis of Barrel % Predictors</h3>
-                <p><a href="barrel-rate-analysis.html" target="_blank">View Project</a></p>
-	    </div>
-            <div class="project-item">
-                <img src="images/placeholder.jpg" alt="Project 2">
-                <h3>Project Title 2</h3>
-            </div>
-            <div class="project-item">
-                <img src="images/placeholder.jpg" alt="Project 3">
-                <h3>Project Title 3</h3>
-            </div>
+            <!-- Project 2 - Placeholder -->
+            <article class="project-card coming-soon">
+                <div class="project-header">
+                    <span class="file-type">.py</span>
+                    <span class="project-date">2024-01-10</span>
+                </div>
+                <div class="project-image-container">
+                    <img src="images/placeholder.jpg" alt="Coming Soon" class="project-image">
+                    <div class="image-overlay">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h2 class="project-name">quant_model.py</h2>
+                    <div class="project-meta">
+                        <span><i class="fas fa-code-branch"></i> finance</span>
+                        <span><i class="fas fa-chart-line"></i> trading</span>
+                    </div>
+                    <p class="project-description">Quantitative trading model under development (check back soon)</p>
+                    <div class="project-actions">
+                        <button class="terminal-button disabled">
+                            <i class="fas fa-lock"></i> Locked
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 3 - Placeholder -->
+            <article class="project-card coming-soon">
+                <div class="project-header">
+                    <span class="file-type">.ipynb</span>
+                    <span class="project-date">2024-02-20</span>
+                </div>
+                <div class="project-image-container">
+                    <img src="images/placeholder.jpg" alt="Coming Soon" class="project-image">
+                    <div class="image-overlay">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h2 class="project-name">nlp_analysis.ipynb</h2>
+                    <div class="project-meta">
+                        <span><i class="fas fa-code-branch"></i> nlp</span>
+                        <span><i class="fas fa-language"></i> text</span>
+                    </div>
+                    <p class="project-description">Natural language processing project in development</p>
+                    <div class="project-actions">
+                        <button class="terminal-button disabled">
+                            <i class="fas fa-lock"></i> Locked
+                        </button>
+                    </div>
+                </div>
+            </article>
         </div>
     </main>
-</body>
-</html>
 
+    <footer class="site-footer">
+        <p>© 2023 Lucas Ben. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Simulate typing effect for the command line
+        const command = document.querySelector('.command');
+        const text = "ls -la ./projects/";
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                command.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                document.querySelector('.cursor').style.animation = 'none';
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    </script>
+</body>
+</html>                        
