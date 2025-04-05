@@ -3,106 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Blog - Lucas Ben</title>
     <link rel="stylesheet" href="style.css">
- <style>
-        /* Default layout for blog posts */
-        .post-feed {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .post {
-            background: #f4f4f4;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .post h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .post p {
-            font-size: 1em;
-            line-height: 1.5;
-        }
-
-        /* Mobile adjustments: Stack posts vertically */
-        @media screen and (max-width: 768px) {
-            .post-feed {
-                grid-template-columns: 1fr; /* Stack posts vertically on mobile */
-            }
-
-            .post h3 {
-                font-size: 1.2em; /* Adjust text size for smaller screens */
-            }
-
-            .post p {
-                font-size: 0.9em; /* Adjust paragraph text for better readability on mobile */
-            }
-
-            /* Mobile Navigation */
-            nav ul {
-                display: none; /* Hide the default nav on mobile */
-            }
-
-            .menu-toggle {
-                display: block; /* Show the toggle button */
-            }
-
-            .mobile-menu {
-                display: none;
-                flex-direction: column;
-                background: #3e8e41;
-                padding: 10px;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-            }
-
-            .mobile-menu a {
-                padding: 10px;
-                text-align: center;
-                display: block;
-            }
-
-            .mobile-menu.active {
-                display: flex;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="menu-toggle">☰</button>
         </nav>
     </header>
+             
+    <main class="blog-content">
+        <h1 class="blog-title">> Blog_Entries</h1>
+        
+        <div class="terminal-command">
+            <span class="prompt">$</span> 
+            <span class="command">cat ./blog/*.md</span>
+            <span class="cursor">|</span>
+        </div>
+        
+        <div class="terminal-grid">
+            <!-- Blog Post 1 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <span class="post-date">2023-11-15</span>
+                    <span class="read-time"><i class="far fa-clock"></i> 5 min read</span>
+                </div>
+                <div class="post-details">
+                    <h2 class="post-name">bayesian_inference.md</h2>
+                    <div class="post-meta">
+                        <span><i class="fas fa-tag"></i> statistics</span>
+                        <span><i class="fas fa-chart-bar"></i> baseball</span>
+                    </div>
+                    <p class="post-excerpt">Exploring Bayesian methods for analyzing barrel rates in MLB hitters...</p>
+                    <div class="post-actions">
+                        <a href="bayesian-blog-post.html" class="terminal-button">
+                            <i class="fas fa-book-open"></i> Read_Post
+                        </a>
+                    </div>
+                </div>
+            </article>
 
-    <main class="blog">
-        <h1>Blog</h1>
-        <div class="post-feed">
-            <div class="post">
-                <h3>Post Title 1</h3>
-                <p>This is the first blog post.</p>
-            </div>
-            <div class="post">
-                <h3>Post Title 2</h3>
-                <p>This is the second blog post.</p>
-            </div>
-            <!-- Add more posts -->
+            <!-- Blog Post 2 -->
+            <article class="post-card">
+                <div class="post-header">
+                    <span class="post-date">2024-01-10</span>
+                    <span class="read-time"><i class="far fa-clock"></i> 8 min read</span>
+                </div>
+                <div class="post-details">
+                    <h2 class="post-name">volatility_spreads.md</h2>
+                    <div class="post-meta">
+                        <span><i class="fas fa-tag"></i> finance</span>
+                        <span><i class="fas fa-chart-line"></i> trading</span>
+                    </div>
+                    <p class="post-excerpt">Analyzing the relationship between VIX and SPX volatility spreads...</p>
+                    <div class="post-actions">
+                        <a href="volatility-blog-post.html" class="terminal-button">
+                            <i class="fas fa-book-open"></i> Read_Post
+                        </a>
+                    </div>
+                </div>
+            </article>
         </div>
     </main>
+
+    <footer class="site-footer">
+        <p>© 2023 Lucas Ben. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Simulate typing effect for the command line
+        const command = document.querySelector('.command');
+        const text = "cat ./blog/*.md";
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                command.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                document.querySelector('.cursor').style.animation = 'none';
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    </script>
 </body>
 </html>
-
+                      

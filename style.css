@@ -400,6 +400,100 @@ pre {
     }
 }
 
+/* ===== Blog Section ===== */
+.blog-content {
+    max-width: 1200px;
+    margin: 100px auto 50px;
+    padding: 0 30px;
+}
+
+.blog-title {
+    font-family: 'Courier New', monospace;
+    color: #5cdb95;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.post-card {
+    background: #1e1e1e;
+    border: 1px solid #424242;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+    position: relative;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(92, 219, 149, 0.2);
+    border-color: #5cdb95;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.post-date {
+    color: #5cdb95;
+}
+
+.read-time {
+    color: #828282;
+}
+
+.post-name {
+    color: #5cdb95;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.post-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #828282;
+}
+
+.post-meta i {
+    margin-right: 5px;
+    color: #5cdb95;
+}
+
+.post-excerpt {
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.post-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .terminal-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-title {
+        font-size: 1.8em;
+    }
+    
+    .post-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
 /* ===== Footer ===== */
 .site-footer {
   border-top: 1px solid #424242;
