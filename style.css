@@ -159,6 +159,26 @@ nav ul li a:hover {
   }
 }
 
+.projects-content {
+    max-width: 1200px;
+    margin: 100px auto 50px;
+    padding: 0 30px;
+}
+
+.projects-title {
+    font-family: 'Courier New', monospace;
+    color: #5cdb95;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+.terminal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+
 /* ===== Code/Pre Blocks ===== */
 pre, code {
   font-family: 'Courier New', monospace;
