@@ -105,6 +105,30 @@ nav ul li a:hover {
   margin-bottom: 10px;
 }
 
+/* Social Links Styles - ADD THIS NEW SECTION */
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-block;
+  color: #5cdb95;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.1em;
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.social-links i {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
 /* ===== Main Content ===== */
 .main-content {
   max-width: 950px;
