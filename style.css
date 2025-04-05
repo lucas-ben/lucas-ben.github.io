@@ -410,6 +410,12 @@ pre {
 }
 
 /* ===== Mobile Responsiveness ===== */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
 @media screen and (max-width: 768px) {
   .site-header {
     text-align: center;
