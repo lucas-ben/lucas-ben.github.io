@@ -1,0 +1,221 @@
+---
+title: "Untitled"
+author: "Lucas Ben"
+date: "2025-04-09"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(tidyquant)
+library(PerformanceAnalytics)
+library(scales)
+library(timetk)
+stock_symbols <- c("AAPL", "MSFT", "NFLX", "TSLA")
+
+# Keep just the closing price
+stock_prices <- tq_get(stock_symbols, from = "2010-01-01") %>%
+  select(symbol, date, close)
+
+```
+
+```{r}
+vfv_growth %>%
+  ggplot(aes(x = date, y = investment.growth)) +
+  geom_line(color = palette_light()[[1]], size = 1) +
+  labs(title = "Growth of $10,000 Investment in VFV.TO (S&P 500 ETF)",
+       subtitle = paste("From", format(min(vfv_growth$date), "%b %d, %Y"), 
+       "to", format(max(vfv_growth$date), "%b %d, %Y")),
+       x = "Date",
+       y = "Investment Value") +
+  scale_y_continuous(labels = dollar_format()) +
+  theme_tq() +
+  geom_smooth(method = "loess", se = FALSE, color = "blue", alpha = 0.2)
+```
+
+
+```{r}
+# Compare to Canadian market (XIC.TO)
+xic <- tq_get("XIC.TO", 
+              get = "stock.prices", 
+              from = "2020-09-01",
+              to = Sys.Date())
+
+xic_returns <- xic %>%
+  tq_transmute(select = adjusted,
+               mutate_fun = periodReturn,
+               period = "daily",
+               col_rename = "benchmark.returns")
+
+xic_growth <- xic_returns %>%
+  mutate(investment.growth = initial_investment * cumprod(1 + benchmark.returns))
+
+# Combine data
+combined_growth <- vfv_growth %>%
+  left_join(xic_growth, by = "date") %>%
+  rename(VFV = investment.growth.x,
+         XIC = investment.growth.y)
+
+```
+
+```{r}
+combined_growth %>%
+  select(date, VFV, XIC) %>%
+  gather(key = "ETF", value = "Value", -date) %>%
+  ggplot(aes(x = date, y = Value, color = ETF)) +
+  geom_line(size = 1) +
+  labs(title = "$10,000 Dollar Investment Growth",
+       subtitle = "Vanguard S&P 500 Index ETF vs iShares Core S&P/TSX Capped Composite Index ETF",
+       x = "Date",
+       y = "Investment Value") +
+  scale_y_continuous(labels = dollar_format()) +
+  theme_tq() +
+  scale_color_tq()
+
+```
+
+
+```{r}
+# Convert to xts for PerformanceAnalytics
+vfv_returns_xts <- vfv_returns %>%
+  mutate(date = as.Date(date)) %>%
+  tk_xts(date_var = date)
+
+# Basic performance table
+table.Stats(vfv_returns_xts)
+
+# Annualized returns
+table.AnnualizedReturns(vfv_returns_xts)
+
+# Drawdown chart
+chart.Drawdown(vfv_returns_xts, main = "Vanguard S&P 500 Index ETF Drawdowns")
+```
+
+```{r}
+# Get the latest value
+final_amount <- vfv_growth %>% 
+  filter(date == max(date)) %>% 
+  pull(investment.growth)
+
+# Format as currency
+final_amount_formatted <- scales::dollar(final_amount)
+
+# Print result
+cat("Final value of $10,000 investment:", final_amount_formatted, "\n")
+```
+
+
+```{r}
+vfv_returns %>%
+  tq_transmute(select = daily.returns,
+               mutate_fun = to.monthly,
+               col_rename = "monthly.returns") %>%
+  mutate(year = year(date),
+         month = month(date, label = TRUE, abbr = TRUE)) %>%  
+  ggplot(aes(x = month, y = year, fill = monthly.returns)) +
+  geom_tile() +
+  labs(title = "Vanguard S&P 500 Index ETF Monthly Returns",
+       x = "",
+       y = "") +
+  scale_fill_gradient2(
+  low = "red", mid = "white", high = "green",
+  midpoint = 0,
+  labels = scales::label_percent(accuracy = 1)
+) +
+  scale_x_discrete(labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")) +  
+  theme_tq()
+
+```
+```{r}
+# dollar cost averaging $5000 principle with recurring $100 monthly deposits
+investment_dates <- seq.Date(from = floor_date(min(vfv$date), "month"),
+                            to = floor_date(Sys.Date(), "month"),
+                            by = "month")
+
+dca_schedule <- tibble(
+  date = investment_dates,
+  amount = ifelse(date == min(date), 5000, 100) # $5k initial, $100 monthly
+) %>%
+  filter(date <= max(vfv$date)) # Remove future months
+
+# Join prices with investment dates
+dca_calc <- dca_schedule %>%
+  left_join(vfv, by = "date") %>%
+  arrange(date) %>%
+  mutate(
+    # Handle missing prices (weekends/holidays) with last-observation-carried-forward
+    adjusted = na.locf(adjusted),
+    shares_bought = amount / adjusted,
+    cumulative_shares = cumsum(shares_bought),
+    investment_value = cumulative_shares * adjusted
+  )
+
+# Create daily value timeline
+portfolio_value <- vfv %>%
+  left_join(select(dca_calc, date, cumulative_shares), by = "date") %>%
+  arrange(date) %>%
+  fill(cumulative_shares, .direction = "down") %>% # Carry shares forward
+  mutate(
+    portfolio_value = cumulative_shares * adjusted,
+    total_invested = approx(dca_calc$date, 
+                           cumsum(dca_calc$amount), 
+                           xout = date)$y
+  ) %>%
+  filter(!is.na(portfolio_value)) # Remove pre-investment period
+```
+
+```{r}
+ggplot(portfolio_value, aes(x = date)) +
+  geom_line(aes(y = portfolio_value, color = "Portfolio Value"), size = 1) +
+  geom_line(aes(y = total_invested, color = "Total Invested"), size = 1) +
+  labs(title = "VFV.TO DCA Strategy: $5,000 Initial + $100 Monthly",
+       subtitle = paste("From", format(min(portfolio_value$date), "%b %Y"),
+                       "to", format(max(portfolio_value$date), "%b %Y")),
+       x = "Date",
+       y = "Value (CAD)",
+       color = "") +
+  scale_y_continuous(labels = dollar_format()) +
+  scale_color_manual(values = c("Portfolio Value" = palette_light()[[1]],
+                                "Total Invested" = palette_light()[[2]])) +
+  theme_tq() +
+  theme(legend.position = "top")
+```
+
+```{r}
+# Calculate returns
+dca_returns <- portfolio_value %>%
+  tq_transmute(select = portfolio_value,
+               mutate_fun = periodReturn,
+               period = "daily",
+               col_rename = "returns")
+
+# Performance summary
+dca_returns %>%
+  mutate(date = as.Date(date)) %>%
+  tk_xts(date_var = date) %>%
+  table.AnnualizedReturns()
+
+# Current stats
+latest <- portfolio_value %>% filter(date == max(date))
+cat("Final Portfolio Value:", dollar(latest$portfolio_value), "\n")
+cat("Total Invested:", dollar(latest$total_invested), "\n")
+cat("Gain:", dollar(latest$portfolio_value - latest$total_invested), "\n")
+cat("Return:", percent((latest$portfolio_value/latest$total_invested)-1), "\n")
+```
+
+```{r}
+dca_calc %>%
+  filter(date > min(date)) %>% # Exclude initial $5k investment
+  ggplot(aes(x = date, y = adjusted)) +
+  geom_line(color = "gray50") +
+  geom_point(aes(size = shares_bought, color = adjusted), alpha = 0.8) +
+  labs(title = "Monthly $100 Investments in VFV.TO",
+       subtitle = "Point size represents shares purchased each month",
+       x = "Date",
+       y = "Share Price (CAD)") +
+  scale_y_continuous(labels = dollar_format()) +
+  scale_color_gradient(low = palette_light()[[1]], high = palette_light()[[2]]) +
+  theme_tq()
+```
+
