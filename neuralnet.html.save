@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicting Public Trust in AI Healthcare | Lucas Ben</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles from your example */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            padding-top: 100px;
+        }
+
+        /* Header/Navigation styles */
+        .site-header {
+            background-color: #05386b;
+            border-bottom: 6px solid #5cdb95;
+            min-height: 70px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #05386b;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Titillium Web', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #5cdb95;
+            border-bottom: 3px solid #5cdb95;
+        }
+
+        /* Article Styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        article {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-family: 'Titillium Web', sans-serif;
+            color: #5cdb95;
+            margin-top: 0;
+            font-size: 2.2em;
+            border-bottom: 2px solid #05386b;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-family: 'Titillium Web', sans-serif;
+            color: #5cdb95;
+            margin-top: 30px;
+            font-size: 1.6em;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            background-color: #05386b;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .methods-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .methods-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .methods-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #5cdb95;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .results-table th, .results-table td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .results-table th {
+            background-color: #05386b;
+            color: white;
+        }
+
+        .results-table tr:nth-child(even) {
+            background-color: #2a2a2a;
+        }
+
+        .conclusion {
+            font-style: italic;
+            border-left: 3px solid #5cdb95;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <article>
+            <h1>Predicting Public Trust in AI Healthcare</h1>
+            
+            <p>As artificial intelligence becomes increasingly integrated into healthcare systems, understanding public trust in these technologies is crucial. In this project, I developed machine learning models to predict individuals' comfort levels with AI in healthcare based on demographic factors and attitudes toward technology.</p>
+            
+            <div class="highlight">
+                <p><strong>Key Findings:</strong> The neural network model achieved 78% accuracy in predicting trust levels, outperforming the random forest approach. Education level and prior AI knowledge emerged as the strongest predictors of trust.</p>
+            </div>
+
+            <h2>Project Overview</h2>
+            <p>The project utilized survey data from the Pew Research Center containing responses about attitudes toward AI in healthcare along with demographic information. The goal was to build classification models that could predict an individual's comfort level with AI healthcare applications based on their characteristics and opinions.</p>
+
+            <h2>Methods</h2>
+            <ul class="methods-list">
+                <li><strong>Data Preparation:</strong> Cleaned and preprocessed survey data, handling missing values and encoding categorical variables. Created meaningful feature groupings for demographic and attitudinal variables.</li>
+                
+                <li><strong>Exploratory Analysis:</strong> Conducted factor analysis to identify latent structures in the attitude variables, reducing 7 correlated features into 2 core components related to perceived benefits and concerns about AI in healthcare.</li>
+                
+                <li><strong>Model Development:</strong> Implemented two approaches:
+                    <ul>
+                        <li>Random Forest classifier with hyperparameter tuning</li>
+                        <li>Neural network with two hidden layers (64 and 32 nodes) using ReLU activation</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Evaluation:</strong> Compared model performance using accuracy, precision, recall, and ROC AUC metrics on a held-out test set.</li>
+            </ul>
+
+            <h2>Results</h2>
+            <table class="results-table">
+                <tr>
+                    <th>Model</th>
+                    <th>Accuracy</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>ROC AUC</th>
+                </tr>
+                <tr>
+                    <td>Random Forest</td>
+                    <td>0.72</td>
+                    <td>0.71</td>
+                    <td>0.70</td>
+                    <td>0.79</td>
+                </tr>
+                <tr>
+                    <td>Neural Network</td>
+                    <td>0.78</td>
+                    <td>0.77</td>
+                    <td>0.76</td>
+                    <td>0.85</td>
+                </tr>
+            </table>
+
+            <p>The neural network demonstrated superior performance across all metrics. Feature importance analysis revealed that education level and AI knowledge score were the strongest predictors, followed by political ideology and age. Interestingly, income level showed relatively weak predictive power.</p>
+
+            <h2>Key Insights</h2>
+            <p>The factor analysis successfully distilled the attitude variables into two meaningful dimensions:</p>
+            <ol>
+                <li><strong>Perceived Benefits:</strong> Combining views on AI's impact on quality of care and medical mistakes</li>
+                <li><strong>Concerns:</strong> Combining worries about bias, doctor-patient relationships, and data security</li>
+            </ol>
+            
+            <p>These derived features proved more predictive than the original survey items, suggesting that people's fundamental attitudes toward AI in healthcare fall along these two key dimensions.</p>
+
+            <h2>Conclusion</h2>
+            <p class="conclusion">This project demonstrates that machine learning can effectively predict public trust in AI healthcare applications using demographic and attitudinal data. The neural network approach showed particular promise, and the factor analysis provided valuable insights into how people conceptualize AI in healthcare. These findings could help healthcare organizations and policymakers better understand public perceptions and develop targeted strategies for building trust in AI technologies.</p>
+
+            <p>The complete analysis, including code and detailed methodology, is available in the project Jupyter notebook. Future work could explore more sophisticated neural architectures and investigate cultural differences in AI trust perceptions.</p>
+        </article>
+    </div>
+</body>
+</html>
