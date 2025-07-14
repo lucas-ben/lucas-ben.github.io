@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Building Trust Profiles for AI in Healthcare</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+    }
+    code {
+      background: #eee;
+      padding: 0.2em 0.4em;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Building Trust Profiles for AI in Healthcare</h1>
+  <p><strong>Author:</strong> Lucas Benjamin</p>
+
+  <p>
+    In this project, we explore how individuals perceive AI's role in healthcare.
+    By analyzing survey data on attitudes, knowledge, and demographics, we aim to construct “trust profiles” 
+    — clusters of respondents with similar patterns of comfort, concern, and optimism about AI in medical contexts.
+  </p>
+
+  <h2>Data Overview</h2>
+  <p>
+    The data, sourced from a Pew Research Center survey, includes self-reported comfort with AI in healthcare,
+    perceived risks (e.g., bias, data security), and demographic information like education, race, and ideology.
+  </p>
+
+  <h2>Dimensionality Reduction via Factor Analysis</h2>
+  <p>
+    To reduce noise and uncover latent themes in the data, we applied <strong>Factor Analysis</strong>. 
+    This yielded two primary components:
+  </p>
+  <ul>
+    <li><strong>F1: Positive Expectancy</strong> — trust in AI’s benefits, including quality improvements and error reduction.</li>
+    <li><strong>F2: Relational Impact</strong> — concern over AI depersonalizing care or harming doctor-patient relationships.</li>
+  </ul>
+
+  <p>We retained components with eigenvalues greater than 1, as shown below in the scree plot:</p>
+
+  <h3>Scree Plot</h3>
+  <img src="images/scree_plot.png" alt="Scree Plot of Factor Eigenvalues">
+
+  <h2>Clustering Trust Profiles</h2>
+  <p>
+    We performed KMeans clustering using the extracted factor scores. 
+    The resulting clusters reflect distinct trust profiles:
+  </p>
+
+  <ul>
+    <li><strong>Optimists</strong> — High on Positive Expectancy, low concern about relational impact.</li>
+    <li><strong>Skeptics</strong> — Low expectancy, high relational concern.</li>
+  </ul>
+
+  <h3>Cluster Plot</h3>
+  <img src="images/kmeans_cluster_plot.png" alt="KMeans Clustering on Factor Scores">
+
+  <h2>Simulated Distributions</h2>
+  <p>
+    To validate some assumptions and visualize factor dimensions, we also generated simulated data distributions:
+  </p>
+
+  <h3>Histogram: Comfort with AI</h3>
+  <img src="images/hist_comfort.png" alt="Histogram of Comfort with AI">
+
+  <h3>Histogram: Concern About Bias</h3>
+  <img src="images/hist_bias.png" alt="Histogram of Bias Concern">
+
+  <h3>Histogram: Impact on Doctor-Patient Relationship</h3>
+  <img src="images/hist_relationship.png" alt="Histogram of Doctor-Patient Relationship Impact">
+
+  <h2>Interpretation</h2>
+  <p>
+    These factors may map onto real-world personas. For instance:
+  </p>
+  <ul>
+    <li><strong>The Tech-Savvy Patient:</strong> High AI knowledge, high comfort, minimal concern.</li>
+    <li><strong>The Cautious Realist:</strong> Balanced expectations, but high privacy concerns.</li>
+    <li><strong>The Humanist Skeptic:</strong> Low expectancy, high concern over depersonalization.</li>
+  </ul>
+
+  <h2>Next Steps</h2>
+  <p>
+    These trust profiles will serve as the foundation for predictive models that can anticipate future attitudes 
+    or behaviors based on demographic and psychographic inputs.
+  </p>
+
+  <p><em>Stay tuned as we build a machine learning model to classify new respondents using these factor-derived profiles.</em></p>
+
+</body>
+</html>
+
