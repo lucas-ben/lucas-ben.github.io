@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Ben | Projects</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="updated_style.css">
+  <style>
+    /* Override main content font */
+    .profile-info h2, .hero h1 {
+      font-weight: 300; /* thin */
+      color: #000;      /* black */
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #E1EBEE;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #005f69;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #333;
+    }
+
+    /* Project Grid */
+    .project-grid {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .project-card-content {
+      padding: 15px;
+    }
+
+    .project-card-content h3 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      color: #005f69;
+    }
+
+    .project-card-content p {
+      margin: 5px 0;
+      color: #333;
+    }
+
+    .project-card-content .skills {
+      font-style: italic;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .project-card-content a {
+      text-decoration: none;
+      color: #005f69;
+      margin-right: 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .project-card-content a:hover {
+      color: #003f45;
+    }
+
+    /* Special styling for project titles */
+    .project-card-content h3 a {
+      text-decoration: none;
+      color: #005f69; /* normal state */
+      transition: color 0.3s;
+    }
+
+    .project-card-content h3 a:hover {
+      color: blue; /* hover color */
+      text-decoration: underline; /* makes it feel like a link */
+    }
+
+    /* Call to Action */
+    .cta {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #E1EBEE;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+
+    .cta h2 {
+      color: #005f69;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .cta a {
+      color: #005f69;
+      font-weight: 500;
+    }
+
+    .cta a:hover {
+      color: #003f45;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Top header -->
+  <div class="top-header">
+    <a href="mailto:lucasthaddeusben@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/lucas-b-619178204" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/lucas-ben" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+
+  <div class="logo">
+    <span class="lucas">LUCAS</span>
+    <span class="ben">BEN</span>
+  </div>
+
+  <div class="nav-header">
+    <a href="updated_index.html">HOME</a> |
+    <a href="updated_projects.html">PROJECTS</a> |
+    <a href="blog.html">BLOG</a> |
+    <a href="cv.html">CV</a>
+  </div>
+
+  <div class="main-content">
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Projects</h1>
+      <p>Data Analysis</p>
+    </div>
+
+    <!-- Project Grid (only one project now) -->
+    <div class="project-grid">
+      <div class="project-card" data-category="Sabermetrics">
+        <img src="images/exit_velocity_project_thumbnail.png" alt="Bayesian Exit Velocity Project">
+        <div class="project-card-content">
+          <h3><a href="analyzing_exit_velocity_project.html">Analyzing Exit Velocity Using a Bayesian Hierarchical Model</a></h3>
+          <p>Estimated true exit velocity using a Bayesian framework to generate player projections.</p>
+          <p class="skills">Python, PyMC</p>
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta">
+      <h2>Interested in collaborating?</h2>
+      <p>Reach out to me at <a href="mailto:lucasthaddeusben@gmail.com">lucasthaddeusben@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/lucas-b-619178204" target="_blank">LinkedIn</a>.</p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="text-align:center; padding:20px; background-color:#00704A; color:white;">
+    © Copyright Lucas Ben. 2025. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

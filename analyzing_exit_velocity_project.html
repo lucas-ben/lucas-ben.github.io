@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exit Velocity Project - Lucas Ben</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="updated_style.css">
+  <style>
+    .main-content h2 {
+      font-weight: 300;
+      color: #000;
+    }
+
+    .project-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    .profile-section {
+      background-color: #E1EBEE;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .project-section h2 {
+      font-family: 'Titillium Web', sans-serif;
+      font-weight: 300;
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .project-section hr {
+      border: none;
+      height: 1px;
+      background-color: #ccc;
+      margin: 10px 0 20px 0;
+    }
+
+    .project-section figure {
+      margin: 20px 0;
+    }
+
+    .project-section figure img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .project-section figcaption {
+      font-size: 14px;
+      color: #555;
+      margin-top: 5px;
+    }
+
+    .project-section ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top thin header -->
+  <div class="top-header">
+    <a href="mailto:lucasthaddeusben@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/lucas-b-619178204" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/lucas-ben" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+
+  <!-- Logo -->
+  <div class="logo">
+    <span class="lucas">LUCAS</span>
+    <span class="ben">BEN</span>
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-header">
+    <a href="updated_index.html">HOME</a> |
+    <a href="updated_projects.html">PROJECTS</a> |
+    <a href="blog.html">BLOG</a> |
+    <a href="cv.html">CV</a>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+
+<!-- Hero Image -->
+<div class="project-section" style="text-align:center;">
+  <img src="images/kyle_schwarber.jpg" alt="Kyle Schwarber Exit Velocity" 
+       style="max-width:100%; border-radius:8px;">
+  <p style="font-size:12px; color:#888; margin-top:3px;">
+    Image credit: MLB.com
+  </p>
+  <p style="font-size:14px; color:#555; margin-top:5px;">
+    Kyle Schwarber, one of MLB’s premier power hitters.
+  </p>
+</div>
+
+<!-- Intro -->
+<div class="project-section profile-section" style="font-family: 'Georgia', serif; font-size: 18px; line-height: 1.8;">
+  <h2 style="font-family: 'Titillium Web', sans-serif; font-size: 48px; color: #1560bd; position: relative; display: block;">
+    Exit Velocity Prediction Using Bayesian Inference
+  </h2>
+  <hr>
+  <p style="text-align: center; margin-top: 80px;">
+    This project applies a Bayesian hierarchical Weibull model to estimate player-specific true exit velocity ability and generate forward-looking projections for the 2024 MLB season. 
+    <br><br>
+    By capturing both individual and population-level uncertainty, the model provides a robust framework for evaluating hitters’ underlying talent against MLB-level pitching.
+  </p>
+</div>
+
+
+<!-- Data & Preparation -->
+<div class="project-section" style="font-family: 'Georgia', serif; font-size: 18px; line-height: 1.8;">
+  <h2 style="color: #005f69;">Data Preparation & Analysis Approach</h2>
+  <p>
+    The main data set consists of <strong>1,344,653 observations with 15 features</strong> capturing exit velocity and batted ball metrics for MLB players. 
+    A validation dataset includes <strong>648 observations with 3 features</strong>, containing batter IDs for projection.
+  </p>
+  <p>
+    Analysis was conducted on the players relevant to the validation set." Extensive data cleaning and preprocessing were required to ensure consistency, handle missing values, and prepare the datasets for modeling.
+  </p>
+  <p>
+    Exploratory analysis revealed a <strong>left-skewed distribution of average exit velocity</strong>, consistent with the findings of Jonathan Judge (Baseball Prospectus, December 13, 2024), who notes that most players tend to have lower exit velocities, with a small number achieving significantly higher velocities through optimal effort. 
+    This observation motivated the use of flexible skewed distributions such as the Weibull and skew-normal to model player-level performance. 
+    <a href="https://www.baseballprospectus.com/news/article/95454/prospectus-feature-exit-velocity-modeling-average-maximum-athletic-effort/" target="_blank">Read the full article here.</a>
+  </p>
+
+  <figure>
+    <img src="images/marlinsplot1.png" alt="Distribution of Exit Velocity">
+    <figcaption style="text-align: center;">
+      <strong>Figure 1.</strong> Distribution of average exit velocity for MLB players.
+    </figcaption>
+  </figure>
+
+  <figure>
+    <img src="images/marlinsplot5.png" alt="Distribution Fit">
+    <figcaption style="text-align: center;">
+      <strong>Figure 2.</strong> Comparison of Weibull and skew-normal fits to illustrate modeling choices.
+    </figcaption>
+  </figure>
+</div>
+
+<!-- Methodology -->
+<div class="project-section" style="font-family: 'Georgia', serif; font-size: 18px; line-height: 1.8;">
+  <h2 style="color: #005f69;">Methodology</h2>
+  <p>
+    Given the left-skewed nature of the exit velocity data, the values were <strong>mirrored</strong> to align with the Weibull distribution’s right-skew assumption:
+  </p>
+  <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 18px;">
+    <strong>Mirrored EV</strong> = max(EV) + 1 − EV
+  </p>
+  <p>
+    This transformation shifts the mode leftward, better aligning with Weibull assumptions.
+  </p>
+  <p>
+    To ensure efficient sampling in PyMC, I implemented a <em>non-centered parameterization</em> for player-specific parameters and used the NUTS sampler with 4 chains and 3000 samples.
+    Initially, fewer samples caused convergence issues, which were resolved by increasing the sample size.
+  </p>
+
+  <p><strong>Hyperpriors:</strong></p>
+  <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 18px;">
+    α<sub>μ</sub> ~ Gamma(2, 0.5) <br>
+    α<sub>σ</sub> ~ HalfNormal(0.1) <br>
+    β<sub>μ</sub> ~ Gamma(50, 0.5) <br>
+    β<sub>σ</sub> ~ HalfNormal(2)
+  </p>
+
+  <ul>
+    <li>These priors represent moderately informative beliefs about the distribution of parameters across all players.</li>
+    <li>Mirrored exit velocity data allows the Weibull distribution to capture the left-skewed behavior of the original data.</li>
+    <li>Convergence was validated using visual inspection of trace plots.</li>
+  </ul>
+
+  <figure>
+    <img src="images/ff.png" alt="Convergence diagnostics">
+    <figcaption style="text-align: center;">
+      <strong>Figure 3.</strong> Trace plots showing convergence of posterior samples.
+    </figcaption>
+  </figure>
+</div>
+
+<!-- Results -->
+<div class="project-section" style="font-family: 'Georgia', serif; font-size: 18px; line-height: 1.8;">
+  <h2 style="color: #005f69;">Results</h2>
+  <p>
+    From the posterior distributions of the hierarchical Weibull model, I obtained player-specific posterior mean estimates:
+  </p>
+  <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 18px;">
+    α<sub>i</sub> = E[α<sub>i</sub> | data], &nbsp; β<sub>i</sub> = E[β<sub>i</sub> | data]
+  </p>
+  <p>
+    Each batter’s true exit velocity ability against MLB-level pitching is defined as the expected value of the mirrored Weibull distribution:
+  </p>
+  <p style="text-align: center; font-family: 'Times New Roman', serif; font-size: 18px;">
+    True EV Ability<sub>i</sub> = max(EV) + 1 − β<sub>i</sub> · Γ(1 + 1 / α<sub>i</sub>)
+  </p>
+  <p>
+    To forecast player exit velocities for the 2024 season:
+  </p>
+  <ul>
+    <li>1000 samples were drawn from each player's posterior distribution.</li>
+    <li>Simulated exit velocities were back-transformed to the original scale and summarized, including:
+      <ul>
+        <li>Mean and standard deviation</li>
+        <li>5th and 95th percentiles to represent uncertainty intervals</li>
+      </ul>
+    </li>
+  </ul>
+  <p>
+    Predictions were generated for 648 batters. Example projections:
+  </p>
+  <ul>
+    <li>
+      <strong>Player 2</strong> shows the highest estimated average exit velocity (89.87 MPH), with a relatively tight 90% credible interval [86.03, 93.02]. 
+      This suggests a high level of confidence in their consistent ability to generate hard contact.
+      <ul>
+        <li>α = 5.57 indicates a concentrated distribution, meaning Player 2’s exit velocities are consistently close to their average, with few outliers.</li>
+        <li>β = 7.59 indicates their performance is not highly volatile, suggesting a stable average exit velocity estimate.</li>
+      </ul>
+    </li>
+    <li><strong>Player 6 and Player 9</strong> have slightly lower estimated average exit velocities and higher uncertainty in their projections, reflecting more variability in historical performance or fewer data points.</li>
+  </ul>
+</div>
+
+<!-- Insights -->
+<div class="project-section" style="font-family: 'Georgia', serif; font-size: 18px; line-height: 1.8;">
+  <h2 style="color: #005f69;">Insights</h2>
+  <ul>
+    <li>Exit velocity distributions are inherently skewed; traditional symmetric models understate uncertainty.</li>
+    <li>Bayesian hierarchical modeling captures <em>both individual and group-level uncertainty</em>.</li>
+    <li>Posterior predictive simulations provide probabilistic projections instead of point estimates.</li>
+  </ul>
+</div>
+
+<!-- Conclusion -->
+<div class="project-section" style="font-family: 'Georgia', serif; font-size: 18px; line-height: 1.8;">
+  <h2 style="color: #005f69;">Conclusion</h2>
+  <p>
+    This Bayesian approach captures uncertainty at both the population and individual player levels, providing projections of exit velocity against MLB-level talent for the 2024 season. 
+    The use of mirrored data and non-centered parameterization enhances both model fit and computational efficiency.
+  </p>
+  <p>
+    Future improvements could include:
+  </p>
+  <ul>
+    <li>Modeling non-mirrored data using alternative distributions, such as skew-normal.</li>
+    <li>Incorporating covariates like pitch type or batted ball outcome.</li>
+  </ul>
+</div>
+
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="text-align:center; padding:20px; background-color:#00704A; color:white;">
+    © Copyright Lucas Ben. 2025. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
