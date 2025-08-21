@@ -158,3 +158,16 @@ body {
   color: #333;
 }
 
+/* --- GitHub link styling --- */
+.github-link {
+  color: #007bff; /* standard hyperlink blue */
+  text-decoration: none; /* remove underline by default */
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.github-link:hover {
+  color: #0056b3; /* darker blue on hover */
+  text-decoration: underline; /* underline on hover */
+}
+
+
