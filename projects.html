@@ -1,162 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Lucas Ben</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Ben | Projects</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="updated_style.css">
+  <style>
+    /* Override main content font */
+    .profile-info h2, .hero h1 {
+      font-weight: 300; /* thin */
+      color: #000;      /* black */
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #E1EBEE;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #005f69;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #333;
+    }
+
+    /* Project Grid */
+    .project-grid {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .project-card-content {
+      padding: 15px;
+    }
+
+    .project-card-content h3 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      color: #005f69;
+    }
+
+    .project-card-content p {
+      margin: 5px 0;
+      color: #333;
+    }
+
+    .project-card-content .skills {
+      font-style: italic;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .project-card-content a {
+      text-decoration: none;
+      color: #005f69;
+      margin-right: 10px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .project-card-content a:hover {
+      color: #003f45;
+    }
+
+    /* Special styling for project titles */
+    .project-card-content h3 a {
+      text-decoration: none;
+      color: #005f69; /* normal state */
+      transition: color 0.3s;
+    }
+
+    .project-card-content h3 a:hover {
+      color: blue; /* hover color */
+      text-decoration: underline; /* makes it feel like a link */
+    }
+
+    /* Call to Action */
+    .cta {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #E1EBEE;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+
+    .cta h2 {
+      color: #005f69;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .cta a {
+      color: #005f69;
+      font-weight: 500;
+    }
+
+    .cta a:hover {
+      color: #003f45;
+    }
+
+  </style>
 </head>
 <body>
-    <header class="site-header">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="menu-toggle">☰</button>
-    </header>
-             
-    <main class="projects-content">
-        <h1 class="projects-title">> projects_</h1>
-        
-        <div class="terminal-command">
-            <span class="prompt">$</span> 
-            <span class="command">/projects/</span>
-            <span class="cursor">|</span>
-        </div>
-   
-     
-        <div class="terminal-grid">
-<article class="project-card">
-    <div class="project-header">
-        <span class="file-type">.html</span>
-        <span class="project-date">July 2025</span> <!-- Update the date accordingly -->
+
+  <!-- Top header -->
+  <div class="top-header">
+    <a href="mailto:lucasthaddeusben@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/lucas-b-619178204" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/lucas-ben" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+
+  <div class="logo">
+    <span class="lucas">LUCAS</span>
+    <span class="ben">BEN</span>
+  </div>
+
+  <div class="nav-header">
+    <a href="updated_index.html">HOME</a> |
+    <a href="updated_projects.html">PROJECTS</a> |
+    <a href="blog.html">BLOG</a> |
+    <a href="cv.html">CV</a>
+  </div>
+
+  <div class="main-content">
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Projects</h1>
+      <p>Data Analysis</p>
     </div>
-    <div class="project-image-container">
-        <img src="images/network.png" alt="Neural Network Project" class="project-image">
-        <div class="image-overlay">
-            <i class="fas fa-search-plus"></i>
-        </div>
+
+   <!-- Project Grid (only one project now) -->
+<div class="project-grid">
+  <div class="project-card" data-category="Sabermetrics">
+    <img src="images/exit_velocity_project_thumbnail.png" alt="Bayesian Exit Velocity Project">
+    <div class="project-card-content">
+      <h3>
+        <a href="analyzing_exit_velocity_project.html">Analyzing Exit Velocity Using a Bayesian Hierarchical Model</a>
+      </h3>
+      <p>Estimated true exit velocity using a Bayesian framework to generate player projections.</p>
+      <p class="skills">Python, PyMC</p>
+      <a href="https://github.com/lucas-ben/lucas-ben.github.io/blob/main/analyzing_exit_velo.py" 
+   class="github-link" target="_blank">GitHub</a>
+
     </div>
-    <div class="project-details">
-        <h2 class="project-name">Neural Network Model</h2>
-        <div class="project-meta">
-            <span><i class="fas fa-brain"></i> machine learning</span>
-            <span><i class="fas fa-code"></i> neural networks</span>
-        </div>
-        <p class="project-description">Implementing a neural network to predict player performance metrics</p>
-        <div class="project-actions">
-            <a href="neuralnet.html" class="terminal-button">
-                <i class="fas fa-terminal"></i> View Project
-            </a>
-            <a href="https://github.com/lucas-ben/lucas-ben.github.io/blob/main/neuralnet.py" target="_blank" class="terminal-button">
-                <i class="fab fa-github"></i> Source
-            </a>
-        </div>  
+  </div>
+</div>
+
+    <!-- Call to Action -->
+    <div class="cta">
+      <h2>Interested in collaborating?</h2>
+      <p>Reach out to me at <a href="mailto:lucasthaddeusben@gmail.com">lucasthaddeusben@gmail.com</a> or connect on <a href="https://www.linkedin.com/in/lucas-b-619178204" target="_blank">LinkedIn</a>.</p>
     </div>
-</article>
 
+  </div>
 
+  <!-- Footer -->
+  <footer class="site-footer" style="text-align:center; padding:20px; background-color:#00704A; color:white;">
+    © Copyright Lucas Ben. 2025. All Rights Reserved.
+  </footer>
 
-            <!-- Project 1 - Using Bayesian Estimation to Analyze Whiff % -->
-            <article class="project-card">
-                <div class="project-header">
-                    <span class="file-type">.html</span>
-                    <span class="project-date">April 2025</span>
-                </div>
-                <div class="project-image-container">
-                    <img src="images/veneziano_plot.png" alt="Bayesian Whiff Rate Analysis" class="project-image">
-                    <div class="image-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <h2 class="project-name">Bayesian Whiff % Analysis</h2>
-                    <div class="project-meta">
-                        <span><i class="fas fa-code-branch"></i> statistics</span>
-                        <span><i class="fas fa-baseball-ball"></i> baseball</span>
-                    </div>
-                    <p class="project-description">Estimating true pitcher talent using Bayesian methods with conjugate priors for small sample analysis</p>
-                    <div class="project-actions">
-                        <a href="bayesianproject.html" class="terminal-button">
-                            <i class="fas fa-terminal"></i> View Project
-                        </a>
-                        <a href="https://github.com/lucas-ben/lucas-ben.github.io/blob/main/bayesian estimation model.py" target="_blank" class="terminal-button">
-                            <i class="fab fa-github"></i> Source
-                        </a>
-                    </div>
-                </div>
-            </article>
-                   
-
-              <!-- Project 2 Vix -->
-            <article class="project-card">
-                <div class="project-header">
-                    <span class="file-type">.html</span>
-                    <span class="project-date">March 2025</span>
-                </div>
-                <div class="project-image-container">
-                    <img src="images/Picture2.png" alt="Bayesian Whiff Rate Analysis" class="project-image">
-                    <div class="image-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <h2 class="project-name">Volatility and the S&P 500</h2>
-                    <div class="project-meta">
-                        <span><i class="fas fa-code-branch"></i> finance</span>
-                        <span><i class="fas fa-database"></i> risk management</span>
-                    </div>
-                    <p class="project-description">Studying the relationship between the VIX and SPX using financial analytics</p>
-                    <div class="project-actions">
-                        <a href="vix.html" class="terminal-button">
-                            <i class="fas fa-terminal"></i> View Project
-                        </a>
-                        <a href="https://github.com/lucas-ben/lucas-ben.github.io/blob/main/vix_spx_analysis.py" target="_blank" class="terminal-button">
-                            <i class="fab fa-github"></i> Source
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-
-
-          
-
-        </div>
-    </main>
-
-    <footer class="site-footer">
-        <p>© 2025</p>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-        
-        // Simulate typing effect for the command line
-        const command = document.querySelector('.command');
-        const text = "ls -la ./projects/";
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                command.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            } else {
-                document.querySelector('.cursor').style.animation = 'none';
-            }
-        }
-        
-        setTimeout(typeWriter, 500);
-    </script>
 </body>
-</html>                        
+</html>
