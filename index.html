@@ -1,79 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Ben - Home</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Ben</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="updated_style.css">
+  <style>
+    /* Override main content LUCAS BEN font */
+    .profile-info h2 {
+      font-weight: 300; /* thin */
+      color: #000;      /* black */
+    }
+
+    /* Blog section styling */
+    .blog-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: left;
+    }
+
+    .blog-section h3 {
+      font-family: 'Titillium Web', sans-serif;
+      font-weight: 300; /* thin */
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .blog-section hr {
+      border: none;
+      height: 1px;
+      background-color: #ccc; /* same as profile hr */
+      margin: 10px 0 20px 0;
+    }
+
+    .blog-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .blog-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .blog-section ul li a {
+      text-decoration: none;
+      color: #006241; /* dark green for links */
+      transition: 0.3s;
+    }
+
+    .blog-section ul li a:hover {
+      color: #004d33;
+    }
+  </style>
 </head>
 <body>
-    <header class="site-header">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="menu-toggle">☰</button>
-    </header>
-             
-    <div class="profile-container">
-        <img src="images/Stjepan_20240601_2556.jpeg" alt="Lucas Ben" class="profile-photo">
-        <h1>Lucas Ben</h1>
-        <p class="location">Toronto, Canada</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/lucas-b-619178204/" target="_blank">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/lucas-ben" target="_blank">
-	    <i class="fab fa-github"></i> GitHub
-          </a>
-    </div>
-                
-    <div class="main-content">
-        <h1 class="dynamic-title">Hi, I'm Lucas</h1>
-        <h2 class="dynamic-subtitle">Welcome to my personal page where I host my analytics and machine learning projects and discuss the applications of quantitative methods. My interests include quantitative finance, risk management, and sabermetrics.</h2>
 
-        <!-- Teaser Section for Latest Projects & Blog Posts -->
-        <section class="teaser-section">
-            <h2>Recent Work</h2>
-                    
-            <div class="teaser-container">
-                <div class="teaser">
-                    <img src="images/veneziano_plot.png" alt="Latest Project">
-                    <h3>Bayesian Whiff % Analysis</h3>
-                    <p><a href="bayesianproject.html">Check out my latest project</a></p>
-                </div>
-                
-                <div class="teaser">
-                    <img src="images/Picture1.png" alt="Latest Blog Post">
-                    <h3>Blog Post</h3>
-                    <p><a href="blogpost1.html">Read my latest blog post</a></p>
-                </div>
-                
-                <div class="teaser">
-                    <img src="images/Picture2.png" alt="Older Project">
-                    <h3>Volatility and the S&P 500</h3>
-                    <p><a href="vix.html">See more projects</a></p>
-                </div>
-            </div>
-        </section>
-    </div>
-    
-    <footer class="site-footer">
-        <p>© 2025</p>
-    </footer>
+  <!-- Top thin header with contact/social links -->
+  <div class="top-header">
+    <a href="mailto:lucasthaddeusben@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/lucas-b-619178204" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/lucas-ben" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
 
-    <script>
-        // Mobile menu toggle functionality
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-    </script>
+  <!-- Logo centered -->
+  <div class="logo">
+    <span class="lucas">LUCAS</span>
+    <span class="ben">BEN</span>
+  </div>
+
+  <!-- Navigation thin header -->
+  <div class="nav-header">
+    <a href="updated_index.html">HOME</a> |
+    <a href="updated_projects.html">PROJECTS</a> |
+    <a href="blog.html">BLOG</a> |
+    <a href="cv.html">CV</a>
+  </div>
+
+<!-- Main content -->
+<div class="main-content">
+  <!-- Profile Section -->
+  <div class="profile-section">
+    <div class="profile-photo">
+      <img src="images/headshot.jpeg" alt="Lucas Ben">
+    </div>
+    <div class="profile-info">
+      <h2>LUCAS BEN</h2>
+      <hr>
+      <p>Hello! I'm Lucas, a statistician and aspiring risk analyst with a passion for data, finance, and macroeconomics. I enjoy creating data-driven solutions and exploring market trends.</p>
+
+      <!-- From the Blog Section INSIDE the blue box -->
+      <div class="blog-section">
+        <h3>FROM THE BLOG</h3>
+        <hr>
+        <ul>
+          <li><a href="#">How I Analyze Market Trends</a></li>
+          <li><a href="#">Statistics in Sports: My Approach</a></li>
+          <li><a href="#">Learning Risk Management as a Student</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    © Copyright Lucas Ben. 2025. All Rights Reserved.
+  </footer>
+
 </body>
 </html>
-                  
